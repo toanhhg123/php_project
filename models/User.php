@@ -1,11 +1,13 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/utils/MD5.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
+require_once __DIR__ . '/AuthSeesion.php';
 
 ?>
 <?php
 class User
 {
+
     public int $id;
     public string $firstName;
     public string $middleName;
@@ -18,6 +20,11 @@ class User
     public string $lastLogin;
     public string $intro;
     public string $profile;
+    public ?string  $zip;
+    public ?string  $province;
+    public ?string  $country;
+
+
 
 
     /**
@@ -74,5 +81,75 @@ class User
         $user = $result->fetchObject('User');
         if (!$user) header('Location : 404.php');
         return $user;
+    }
+
+    public static function deleteById(int $id): bool
+    {
+        global $conn;
+        $sql = "DELETE FROM `user` WHERE id={$id}";
+        $result = $conn->prepare($sql);
+        return $result->execute();
+    }
+
+    public static function Update(User $user): ?User
+    {
+        global $conn;
+        $sql = "
+            UPDATE `user` SET 
+            `firstName`='{$user->firstName}',
+            `middleName`='{$user->middleName}',
+            `lastName`='{$user->lastName}',
+            `mobile`='{$user->mobile}',
+            `email`='{$user->email}',
+            `admin`='{$user->admin}',
+            `intro`='{$user->intro}',
+            `profile`='{$user->profile}',
+            `country`='{$user->country}',
+            `zip`='{$user->zip}',
+            `province`='{$user->province}' 
+            WHERE `id`='{$user->id}';
+        ";
+        $result = $conn->prepare($sql);
+
+        return  $result->execute() ? $user : null;
+    }
+
+    public static function updateById(User $user): bool
+    {
+        global $conn;
+        $sql = "
+            UPDATE `user` SET 
+            `firstName`='{$user->firstName}',
+            `middleName`='{$user->middleName}',
+            `lastName`='{$user->lastName}',
+            `mobile`='{$user->mobile}',
+            `email`='{$user->email}',
+            `admin`='{$user->admin}',
+            `intro`='{$user->intro}',
+            `profile`='{$user->profile}',
+            `country`='{$user->country}',
+            `zip`='{$user->zip}',
+            `province`='{$user->province}' 
+            WHERE `id`='{$user->id}';
+        ";
+
+        $result = $conn->prepare($sql);
+        return  $result->execute();
+    }
+
+    public static function changePassword(string $newPassword): bool
+    {
+        $auth = AuthSession::getInfoAuthecation();
+        global $conn;
+        $newPassword = createHash($newPassword);
+
+        $sql = "
+            UPDATE `user` SET 
+            `passwordHash`='{$newPassword}'
+            WHERE `id`='{$auth->user_id}';
+        ";
+        $result = $conn->prepare($sql);
+
+        return  $result->execute();
     }
 }

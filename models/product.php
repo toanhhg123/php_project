@@ -1,8 +1,10 @@
-<?php
 
+<?php
 require_once __DIR__ . '/../constants/define.php';
 require_once(__DIR__ . '/../service/productService.php');
-require_once(__DIR__ . '/../config/config.php')
+require_once(__DIR__ . '/../config/config.php');
+require_once(__DIR__ . '/Pagination.php');
+
 ?>
 
 <?php
@@ -25,17 +27,21 @@ class Product
     public $content;
     public $category_id;
     /**
-     * @return Product[]
+     * @return Pagination
      */
-    public static function findAll(): array
+    public static function findAll(string $search = "", int $pageIndex = 0, int $pageSize = 8): Pagination
     {
+        $skip = $pageIndex * $pageSize;
         global $conn;
-        $sql = "SELECT * from product";
+        $sql = "SELECT * from product where title like '%{$search}%' limit {$skip},{$pageSize}";
         $result = $conn->prepare($sql);
         $result->execute();
         $products = $result->fetchAll(PDO::FETCH_CLASS, 'Product');
 
-        return $products;
+
+        $totalRow = $conn->query("SELECT count(*) from product where title like '%{$search}%';")->fetchColumn();
+        $totalPage = ceil($totalRow / $pageSize);
+        return new Pagination($pageIndex, $pageSize, $totalPage, $products);
     }
 
     public static function findBySlug($slug): ?Product
@@ -46,6 +52,24 @@ class Product
         $result->execute();
         $product = $result->fetchObject('Product');
         return $product ?? null;
+    }
+
+    public static function findById($id): ?Product
+    {
+        global $conn;
+        $sql = "SELECT * from product where id='{$id}'";
+        $result = $conn->prepare($sql);
+        $result->execute();
+        $product = $result->fetchObject('Product');
+        return $product ?? null;
+    }
+
+    public static function deleteById($id): bool
+    {
+        global $conn;
+        $sql = "delete from  product where id={$id}";
+        $result = $conn->prepare($sql);
+        return $result->execute();
     }
 
     public static function insertProduct($product): ?Product
@@ -71,5 +95,36 @@ class Product
         $result = $conn->prepare($sql);
         $result->execute();
         return $product;
+    }
+
+    public static function updateProduct(product  $product)
+    {
+        global $conn;
+        $sql = "UPDATE `product` SET 
+        `title`='{$product->title}',
+        `metaTitle`='{$product->metaTitle}',
+        `slug`='{$product->slug}',
+        `summary`='{$product->summary}',
+        `sku`='{$product->sku}',
+        `price`='{$product->price}',
+        `discount`='{$product->discount}',
+        `quantity`='{$product->quantity}',
+        `createdAt`='{$product->createdAt}',
+        `updatedAt`='{$product->updatedAt}',
+        `content`='{$product->content}',
+        `category_id`='{$product->category_id}' 
+        WHERE `id`='{$product->id}'";
+
+        $result = $conn->prepare($sql);
+        return $result->execute();
+    }
+
+    public static function Count(): int
+    {
+        global $conn;
+        $sql = "SELECT COUNT(*) FROM product where 1";
+        $res = $conn->query($sql);
+        $count = $res->fetchColumn();
+        return $count;
     }
 }

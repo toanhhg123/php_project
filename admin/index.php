@@ -1,5 +1,7 @@
 <?php
-require_once('./layout/header.php')
+require_once __DIR__ . "/../utils/authorize.php";
+authorize(1);
+require_once('./layout/header.php');
 
 ?>
 

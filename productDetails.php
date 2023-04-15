@@ -1,6 +1,8 @@
 <?php
 require_once "models/product.php";
-require_once "models/CartSession.php";
+require_once __DIR__ . "/utils/authorize.php";
+require_once __DIR__ . "/models/Cart.php"
+
 ?>
 <?php
 $slug = $_GET['slug'] ?? false;
@@ -12,7 +14,7 @@ if (!$data)
 
 $listProduct = [];
 if ($data) {
-    $listProduct = array_filter(Product::findAll(), function ($product) use ($data) {
+    $listProduct = array_filter(Product::findAll()->data, function ($product) use ($data) {
         return $product->id != $data->id;
     });
     $listProduct = array_slice($listProduct, 0, 4);
@@ -21,9 +23,10 @@ if ($data) {
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    authorize();
     $qty = $_POST['qty'] ?? 1;
-    CartSession::addToCartSession($data, (int)$qty);
-    header("Refresh:0");
+    Cart::addToCart($data->id, $qty);
+    header("Location: /cart.php");
 }
 ?>
 

@@ -1,8 +1,16 @@
 <?php
-require_once "models/product.php"
+require_once "models/product.php";
+require_once "models/Category.php";
 ?>
 <?php
-$data = Product::findAll();
+$categories = Category::findAll();
+$search = $_GET["search"] ?? "";
+$pageIndex = $_GET["pageIndex"] ?? 0;
+$pagination = Product::findAll($search, $pageIndex, 8);
+$data = $pagination->data;
+$totalPage = $pagination->totalPage;
+
+
 ?>
 <?php
 require_once "./layout/header.php"
@@ -27,10 +35,9 @@ require_once "./layout/header.php"
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
                     <li><a href="#" class="active">All</a></li>
-                    <li><a href="#">Vegetables</a></li>
-                    <li><a href="#">Fruits</a></li>
-                    <li><a href="#">Juice</a></li>
-                    <li><a href="#">Dried</a></li>
+                    <?php foreach ($categories as $item) : ?>
+                        <li><a href=""><?= $item->name ?></a></li>
+                    <?php endforeach ?>
                 </ul>
             </div>
         </div>
@@ -79,13 +86,10 @@ require_once "./layout/header.php"
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
+                        <?php for ($i = 0; $i < $totalPage; $i++) : ?>
+                            <li class="<?= $pageIndex == $i ? "active" : "" ?>"><a href="/shop.php?search=<?= $search ?>&pageIndex=<?= $i ?>"><?= $i + 1 ?></a></li>
+
+                        <?php endfor ?>
                     </ul>
                 </div>
             </div>

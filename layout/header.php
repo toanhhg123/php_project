@@ -1,6 +1,12 @@
 <?php
-require_once "models/CartSession.php";
+require_once "models/Cart.php";
 require_once "models/Category.php";
+require_once "models/Cart.php";
+?>
+
+<?php
+$len = Cart::Count();
+
 ?>
 
 
@@ -70,10 +76,10 @@ require_once "models/Category.php";
 					<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="shop.php" class="nav-link">Shop</a></li>
 
-					<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="/about.php" class="nav-link">About</a></li>
 					<li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-					<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[<?= CartSession::lenCart() ?>]</a></li>
+					<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[<?= $len ?>]</a></li>
 
 				</ul>
 			</div>

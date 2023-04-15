@@ -2,7 +2,7 @@
 require "models/product.php"
 ?>
 <?php
-$data = Product::findAll();
+$data = Product::findAll()->data;
 $data = array_slice($data, 0, 8);
 ?>
 <?php

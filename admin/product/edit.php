@@ -1,129 +1,114 @@
 <?php
-require_once('../../models/User.php');
+require_once('../layout/header.php');
+require_once('../../models/product.php');
+require_once(__DIR__ . '/../../utils/file.php');
+require_once(__DIR__ . '/../../models/Category.php');
+
 
 ?>
-
 <?php
+$id = $_GET["id"] ?? null;
+if (!$id) header("Location: /404.php");
+
+
 
 $response = null;
-$user = null;
-$id = $_GET['id'] ?? null;
-
-if (!$id)
-    header('Location: ' . '/404.php');
-
-try {
-    $user = User::findById($id);
-    var_dump($user->admin);
-} catch (Exception $th) {
-    $response = [
-        'type' => 'danger',
-        'message' => $th->getMessage()
-    ];
+$product = Product::findById($id);
+$categories = Category::findAll();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        $product->title = $_POST["title"];
+        $product->metaTitle = $_POST["metaTitle"];
+        $product->slug = $_POST["slug"];
+        $product->summary = $_POST["summary"];
+        $product->sku = $_POST["sku"];
+        $product->price = $_POST["price"];
+        $product->discount = $_POST["discount"];
+        $product->quantity = $_POST["quantity"];
+        $product->content = $_POST["content"];
+        $product->category_id = $_POST["category_id"];
+        Product::updateProduct($product);
+        $response = [
+            'type' => 'success',
+            'message' => 'update product success'
+        ];
+    } catch (Exception $th) {
+        $response = [
+            'type' => 'danger',
+            'message' => $th->getMessage()
+        ];
+    }
 }
 
 ?>
-<?php
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     try {
-//         $user = new User(
-//             $_POST['id'] ?? null,
-//             $_POST['firstName'],
-//             $_POST['middleName'],
-//             $_POST['lastName'],
-//             $_POST['mobile'],
-//             $_POST['email'],
-//             $_POST['password'],
-//             $_POST['admin'],
-//             $_POST['registeredAt'] ?? null,
-//             $_POST['lastLogin'] ?? null,
-//             $_POST['intro'],
-//             $_POST['profile']
-//         );
-
-//         $newUser = User::AddUser($user);
-//         $response = [
-//             'type' => 'success',
-//             'message' => 'add user success'
-//         ];
-//     } catch (Exception $th) {
-//         $response = [
-//             'type' => 'danger',
-//             'message' => $th->getMessage()
-//         ];
-//     }
-// }
-
-// 
-?>
-
-<?php
-require_once('../layout/header.php');
-?>
-<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Product Settings /</span> Product</h4>
 <div class="card mb-4">
-    <h5 class="card-header">Profile Details</h5>
+    <h5 class="card-header">Update Product</h5>
     <!-- Account -->
 
     <hr class="my-0">
     <div class="card-body">
-        <form id="formAccountSettings" method="POST">
+        <form id="formAccountSettings" method="POST" enctype="multipart/form-data">
             <?php if ($response) : ?>
                 <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?= $response['message'] ?></div>
             <?php endif ?>
 
-            <?php if ($user) : ?>
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input class="form-control" type="text" id="firstName" name="firstName" autofocus="" value="<?= $user->firstName ?>">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="firstName" class="form-label">Middel Name</label>
-                        <input class="form-control" type="text" id="middleName" name="middleName" autofocus="" value="<?= $user->middleName ?>">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input class="form-control" type="text" name="lastName" id="lastName" value="<?= $user->lastName ?>">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label" for="phoneNumber">Phone Number</label>
-                        <div class="input-group input-group-merge">
-                            <span class="input-group-text">VI (+84)</span>
-                            <input type="text" id="phoneNumber" name="mobile" class="form-control" value="<?= $user->mobile ?>" placeholder="202 555 0111">
-                        </div>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input class="form-control" type="text" id="email" name="email" value="<?= $user->email ?>" placeholder="john.doe@example.com">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
-
-
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label" for="country">Admin</label>
-                        <select id="country" name="admin" class="select2 form-select">
-                            <option value="1" selected='<?= $user->admin === 1 ? true : false ?>'>Admin</option>
-                            <option value="0" selected='<?= $user->admin === 0 ? true : false ?>'>User</option>
-
-                        </select>
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label" for="country">Intro</label>
-                        <textarea id="basic-default-message" value="<?= $user->intro ?>" name="intro" class="form-control" placeholder="I foodboy hihi!!"></textarea>
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label" for="country">Profile</label>
-                        <textarea id="basic-default-message" value="<?= $user->profile ?>" name="profile" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
-                    </div>
-
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="firstName" class="form-label">title</label>
+                    <input value="<?= $product->title ?>" class="form-control" type="text" name="title" autofocus="">
                 </div>
-            <?php endif ?>
+                <div class="mb-3 col-md-6">
+                    <label for="metaTitle" class="form-label">meta title</label>
+                    <input value="<?= $product->metaTitle ?>" class="form-control" type="text" name="metaTitle" id="metaTitle">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label" for="phoneNumber">slug</label>
+                    <div class="input-group input-group-merge">
+                        <span class="input-group-text">/product/</span>
+                        <input value="<?= $product->slug ?>" type="text" id="phoneNumber" name="slug" class="form-control" placeholder="name product">
+                    </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">summary</label>
+                    <input value="<?= $product->summary ?>" class="form-control" type="text" name="summary" placeholder="john.doe@example.com">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">sku</label>
+                    <input value="<?= $product->sku ?>" type="text" class="form-control" id="sku" name="sku">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">price</label>
+                    <input value="<?= $product->price ?>" type="number" class="form-control" id="price" name="price">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">discount</label>
+                    <input value="<?= $product->discount ?>" type="number" class="form-control" id="discount" name="discount">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">quantity</label>
+                    <input value="<?= $product->quantity ?>" type="number" class="form-control" id="quantity" name="quantity">
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label class="form-label" for="country">categories</label>
+                    <select id="country" name="category_id" class="select2 form-select">
+                        <?php foreach ($categories as $item) : ?>
+                            <option value="<?= $item->id ?>"><?= $item->name ?></option>
+                        <?php endforeach ?>
+
+
+                    </select>
+                </div>
+
+                <div class="mb-3 col-md-12">
+                    <label class="form-label" for="country">content</label>
+                    <textarea id="basic-default-message" name="content" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?">
+                    <?= $product->content ?>
+                    </textarea>
+                </div>
+
+            </div>
             <div class="mt-2">
                 <button type="submit" class="btn btn-primary me-2">Save changes</button>
                 <button type="reset" class="btn btn-outline-secondary">Cancel</button>

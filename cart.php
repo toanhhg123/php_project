@@ -1,12 +1,46 @@
 <?php
 require_once "layout/header.php";
-require_once "models/CartSession.php";
+require_once "models/Cart.php";
+require_once "utils/authorize.php";
+require_once "models/AuthSeesion.php";
 ?>
 
 <?php
-$carts = CartSession::findAll();
-?>
+authorize();
+$carts = Cart::findAll(0);
+$auth = AuthSession::getInfoAuthecation();
+$user = User::findById($auth->user_id);
 
+
+$totalPrice = array_reduce($carts, function ($result, $item) {
+    return $result + ($item->price * $item->qty);
+});
+
+$totalDisCount = array_reduce($carts, function ($result, Cart $item) {
+    return $result + ($item->price * ($item->disCount / 100));
+});
+
+
+?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "DeleteCart") {
+    $id = $_POST["id"];
+    Cart::remove($id);
+    header("refresh: 0");
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "UpdateAddress") {
+    $user->country = $_POST['country'] ?? $user->country;
+    $user->province = $_POST['province'] ?? $user->province;
+    $user->zip = $_POST['zip'] ?? $user->province;
+    $user = User::Update($user);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
+    $order =  Cart::updateOrder();
+    header("refresh: 0");
+}
+?>
 
 <div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg')">
     <div class="container">
@@ -44,22 +78,25 @@ $carts = CartSession::findAll();
 
                                 <tr class="text-center">
                                     <td class="product-remove">
-                                        <a href="#"><span class="ion-ios-close"></span></a>
+                                        <form method="post">
+                                            <input type="text" name="typeForm" value="DeleteCart" hidden>
+                                            <input type="text" value="<?= $cart->id ?>" name="id" hidden>
+                                            <button role="button" type="submit" class="btn px-2"><span class="ion-ios-close"></span></button>
+                                        </form>
                                     </td>
 
                                     <td class="image-prod">
-                                        <div class="img" style="background-image: url(assets/images/<?= $cart->product->image ?>)"></div>
+                                        <div class="img" style="background-image: url(/files/<?= $cart->image ?>)"></div>
                                     </td>
 
                                     <td class="product-name">
-                                        <h3><?= $cart->product->title ?></h3>
+                                        <h3><?= $cart->title ?></h3>
                                         <p>
-                                            Far far away, behind the word mountains, far from the
-                                            countries
+                                            <?= $cart->metaTitle ?>
                                         </p>
                                     </td>
 
-                                    <td class="price"><?= '$' . $cart->product->price . '.00' ?></td>
+                                    <td class="price"><?= '$' . $cart->price . '.00' ?></td>
 
                                     <td class="quantity">
                                         <div class="input-group mb-3">
@@ -67,7 +104,7 @@ $carts = CartSession::findAll();
                                         </div>
                                     </td>
 
-                                    <td class="total"><?= '$' . $cart->product->price * $cart->qty . '.00' ?></td>
+                                    <td class="total"><?= '$' . $cart->price * $cart->qty . '.00' ?></td>
                                 </tr>
 
                             <?php endforeach ?>
@@ -80,48 +117,50 @@ $carts = CartSession::findAll();
         <div class="row justify-content-end">
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Coupon Code</h3>
+                    <h3>Check info my order</h3>
                     <p>Enter your coupon code if you have one</p>
                     <form action="#" class="info">
                         <div class="form-group">
-                            <label for="">Coupon code</label>
-                            <input type="text" class="form-control text-left px-3" placeholder="" />
+                            <label for="">Go to Order</label>
+                            <a href="/order.php" class="btn btn-primary py-3 px-4">Go</a>
                         </div>
                     </form>
                 </div>
                 <p>
-                    <a href="checkout.html" class="btn btn-primary py-3 px-4">Apply Coupon</a>
                 </p>
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
                     <h3>Estimate shipping and tax</h3>
                     <p>Enter your destination to get a shipping estimate</p>
-                    <form action="#" class="info">
+                    <form method="post" id="formAddress" class="info">
+                        <input type="text" name="typeForm" value="UpdateAddress" hidden>
+
                         <div class="form-group">
                             <label for="">Country</label>
-                            <input type="text" class="form-control text-left px-3" placeholder="" />
+                            <input type="text" name="country" class="form-control text-left px-3" placeholder="" value="<?= $user->country ?>" />
                         </div>
                         <div class="form-group">
                             <label for="country">State/Province</label>
-                            <input type="text" class="form-control text-left px-3" placeholder="" />
+                            <input type="text" name="province" class="form-control text-left px-3" placeholder="" value="<?= $user->province ?>" />
                         </div>
                         <div class="form-group">
                             <label for="country">Zip/Postal Code</label>
-                            <input type="text" class="form-control text-left px-3" placeholder="" />
+                            <input type="text" name="zip" class="form-control text-left px-3" placeholder="" value="<?= $user->zip ?>" />
                         </div>
+                        <p>
+                            <button type="submit" class="btn btn-primary py-3 px-4">Save</button>
+                        </p>
                     </form>
                 </div>
-                <p>
-                    <a href="checkout.html" class="btn btn-primary py-3 px-4">Estimate</a>
-                </p>
+
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
                     <h3>Cart Totals</h3>
                     <p class="d-flex">
                         <span>Subtotal</span>
-                        <span>$20.60</span>
+                        <span>$<?= $totalPrice ?></span>
                     </p>
                     <p class="d-flex">
                         <span>Delivery</span>
@@ -129,17 +168,18 @@ $carts = CartSession::findAll();
                     </p>
                     <p class="d-flex">
                         <span>Discount</span>
-                        <span>$3.00</span>
+                        <span>$<?= $totalDisCount ?></span>
                     </p>
                     <hr />
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span>$17.60</span>
+                        <span>$<?= $totalPrice - $totalDisCount ?></span>
                     </p>
                 </div>
-                <p>
-                    <a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a>
-                </p>
+                <form method="post">
+                    <input type="text" name="typeForm" value="checkout" hidden>
+                    <button type="submit" class="btn btn-primary py-3 px-4">Proceed to Checkout</button>
+                </form>
             </div>
         </div>
     </div>
