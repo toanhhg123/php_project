@@ -45,25 +45,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
   <!-- Icons. Uncomment required icon fonts -->
-  <link rel="stylesheet" href="/assets/themeAdmin/vendor/fonts/boxicons.css" />
+  <link rel="stylesheet" href="assets/themeAdmin/vendor/fonts/boxicons.css" />
 
   <!-- Core CSS -->
-  <link rel="stylesheet" href="/assets/themeAdmin/vendor/css/core.css" class="template-customizer-core-css" />
-  <link rel="stylesheet" href="/assets/themeAdmin/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-  <link rel="stylesheet" href="/assets/themeAdmin/css/demo.css" />
+  <link rel="stylesheet" href="assets/themeAdmin/vendor/css/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="assets/themeAdmin/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="assets/themeAdmin/css/demo.css" />
 
   <!-- Vendors CSS -->
-  <link rel="stylesheet" href="/assets/themeAdmin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="assets/themeAdmin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
   <!-- Page CSS -->
   <!-- Page -->
-  <link rel="stylesheet" href="/assets/themeAdmin/vendor/css/pages/page-auth.css" />
+  <link rel="stylesheet" href="assets/themeAdmin/vendor/css/pages/page-auth.css" />
   <!-- Helpers -->
-  <script src="/assets/themeAdmin/vendor/js/helpers.js"></script>
+  <script src="assets/themeAdmin/vendor/js/helpers.js"></script>
 
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-  <script src="/assets/themeAdmin/js/config.js"></script>
+  <script src="assets/themeAdmin/js/config.js"></script>
 </head>
 
 <body>
@@ -166,18 +166,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
-  <script src="/assets/themeAdmin/vendor/libs/jquery/jquery.js"></script>
-  <script src="/assets/themeAdmin/vendor/libs/popper/popper.js"></script>
-  <script src="/assets/themeAdmin/vendor/js/bootstrap.js"></script>
-  <script src="/assets/themeAdmin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="assets/themeAdmin/vendor/libs/jquery/jquery.js"></script>
+  <script src="assets/themeAdmin/vendor/libs/popper/popper.js"></script>
+  <script src="assets/themeAdmin/vendor/js/bootstrap.js"></script>
+  <script src="assets/themeAdmin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-  <script src="/assets/themeAdmin/vendor/js/menu.js"></script>
+  <script src="assets/themeAdmin/vendor/js/menu.js"></script>
   <!-- endbuild -->
 
   <!-- Vendors JS -->
 
   <!-- Main JS -->
-  <script src="/assets/themeAdmin/js/main.js"></script>
+  <script src="assets/themeAdmin/js/main.js"></script>
 
   <!-- Page JS -->
 

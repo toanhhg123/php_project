@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="/assets/" data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
@@ -12,7 +12,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/themeAdmin/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../assets/themeAdmin/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,26 +20,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="/assets/themeAdmin/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="../../assets/themeAdmin/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="/assets/themeAdmin/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="/assets/themeAdmin/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="/assets/themeAdmin/css/demo.css" />
+    <link rel="stylesheet" href="../../assets/themeAdmin/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../assets/themeAdmin/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../../assets/themeAdmin/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="/assets/themeAdmin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../../assets/themeAdmin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="/assets/themeAdmin/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="../../assets/themeAdmin/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="/assets/themeAdmin/vendor/js/helpers.js"></script>
+    <script src="../../assets/themeAdmin/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="/assets/themeAdmin/js/config.js"></script>
+    <script src="../../assets/themeAdmin/js/config.js"></script>
 </head>
 
 <body>
@@ -50,7 +50,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="/admin" class="app-brand-link">
+                    <a href="../../admin" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <defs>
@@ -98,7 +98,7 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item active">
-                        <a href="/admin" class="menu-link">
+                        <a href="../../admin" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
@@ -114,12 +114,12 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="/admin/account/index.php" class="menu-link">
+                                <a href="../../admin/account/index.php" class="menu-link">
                                     <div data-i18n="Account">Accounts</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="/admin/account/create.php" class="menu-link">
+                                <a href="../../admin/account/create.php" class="menu-link">
                                     <div data-i18n="Create">Create</div>
                                 </a>
                             </li>
@@ -131,7 +131,7 @@
                     </li>
                     <!-- Cards -->
                     <li class="menu-item">
-                        <a href="/admin/product/index.php" class="menu-link">
+                        <a href="../../admin/product/index.php" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Basic">Products</div>
                         </a>
@@ -144,7 +144,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="/admin/product/create.php" class="menu-link">
+                                <a href="../../admin/product/create.php" class="menu-link">
                                     <div data-i18n="Accordion">Create</div>
                                 </a>
                             </li>
@@ -152,7 +152,7 @@
                     </li>
                     <!-- Extended components -->
                     <li class="menu-item">
-                        <a href="/admin/order" class="menu-link">
+                        <a href="../../admin/order" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-crown"></i>
                             <div data-i18n="Boxicons">Order</div>
                         </a>
@@ -200,7 +200,7 @@
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="/assets/themeAdmin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                        <img src="../../assets/themeAdmin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -209,7 +209,7 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="/assets/themeAdmin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                                        <img src="../../assets/themeAdmin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">

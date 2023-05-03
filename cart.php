@@ -1,10 +1,10 @@
 <?php
-require_once "layout/header.php";
+require_once "models/AuthSeesion.php";
 require_once "models/Cart.php";
 require_once "utils/authorize.php";
-require_once "models/AuthSeesion.php";
-?>
+require_once "models/User.php";
 
+?>
 <?php
 authorize();
 $carts = Cart::findAll(0);
@@ -42,6 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
 }
 ?>
 
+<?php
+require_once "layout/header.php";
+?>
 <div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg')">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -86,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
                                     </td>
 
                                     <td class="image-prod">
-                                        <div class="img" style="background-image: url(/files/<?= $cart->image ?>)"></div>
+                                        <div class="img" style="background-image: url(files/<?= $cart->image ?>)"></div>
                                     </td>
 
                                     <td class="product-name">
@@ -122,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
                     <form action="#" class="info">
                         <div class="form-group">
                             <label for="">Go to Order</label>
-                            <a href="/order.php" class="btn btn-primary py-3 px-4">Go</a>
+                            <a href="order.php" class="btn btn-primary py-3 px-4">Go</a>
                         </div>
                     </form>
                 </div>

@@ -20,7 +20,7 @@ try {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $id = $_POST["id"] ?? null;
-        if (!$id) header("Location: /404.php");
+        if (!$id) header("Location: /page404.php");
         Product::deleteById($id);
         $response = [
             'type' => 'success',

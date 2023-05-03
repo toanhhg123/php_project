@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/utils/MD5.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
-require_once __DIR__ . '/AuthSeesion.php';
+require_once(__dir__ . '/../utils/MD5.php');
+require_once(__dir__ . '/../config/config.php');
+require_once(__DIR__ . '/AuthSeesion.php');
 
 ?>
 <?php
@@ -79,7 +79,6 @@ class User
         $result = $conn->prepare($sql);
         $result->execute();
         $user = $result->fetchObject('User');
-        if (!$user) header('Location : 404.php');
         return $user;
     }
 

@@ -1,5 +1,5 @@
 <?php
-require_once "models/product.php";
+require "models/product.php";
 require_once __DIR__ . "/utils/authorize.php";
 require_once __DIR__ . "/models/Cart.php"
 
@@ -7,10 +7,10 @@ require_once __DIR__ . "/models/Cart.php"
 <?php
 $slug = $_GET['slug'] ?? false;
 if (!$slug)
-    header('Location: 404.php?message=not found product');
+    header('Location: page404.php?message=not found product');
 $data = Product::findBySlug($slug);
 if (!$data)
-    header('Location: 404.php?message=not found product');
+    header('Location: page404.php?message=not found product');
 
 $listProduct = [];
 if ($data) {
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     authorize();
     $qty = $_POST['qty'] ?? 1;
     Cart::addToCart($data->id, $qty);
-    header("Location: /cart.php");
+    header("Location: cart.php");
 }
 ?>
 
@@ -49,7 +49,7 @@ require "./layout/header.php"
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="/files/<?= $data->image ?>" class="image-popup"><img src="/files/<?= $data->image ?>" class="img-fluid" alt="Colorlib Template"></a>
+                <a href="/files/<?= $data->image ?>" class="image-popup"><img src="files/<?= $data->image ?>" class="img-fluid" alt="Colorlib Template"></a>
             </div>
             <form method="post" class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3><?= $data->title ?></h3>
@@ -127,7 +127,8 @@ require "./layout/header.php"
             <?php foreach ($listProduct as $product) : ?>
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product">
-                        <a href="/productDetails.php?slug=<?= $product->slug ?>" class="img-prod"><img class="img-fluid" src="/files/<?= $product->image ?>" alt="Colorlib Template">
+                        <a href="productDetails.php?slug=<?= $product->slug ?>" class="img-prod">
+                            <img class="img-fluid" src="files/<?= $product->image ?>" alt="Colorlib Template">
                             <span class="status"> <?= $product->discount . '%' ?></span>
                             <div class="overlay"></div>
                         </a>

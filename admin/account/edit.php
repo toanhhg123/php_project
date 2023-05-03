@@ -4,7 +4,7 @@ require_once('../../models/User.php');
 ?>
 <?php
 $id = $_GET["id"] ?? null;
-if (!$id) header("Location: /404.php");
+if (!$id) header("Location: /page404.php");
 $response = null;
 
 $user = User::findById($id);
