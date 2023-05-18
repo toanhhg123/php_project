@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
-<a href="/admin/product/create.php" class="my-3 btn btn-primary">Add New</a>
+<a href="create.php" class="my-3 btn btn-primary">Add New</a>
 <div class="card">
     <h5 class="card-header">Table Product</h5>
     <?php if ($response) : ?>

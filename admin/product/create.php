@@ -1,8 +1,12 @@
 <?php
-require_once('../layout/header.php');
-require_once('../../models/product.php');
-require_once(__DIR__ . '/../../utils/file.php');
-require_once(__DIR__ . '/../../models/Category.php');
+try {
+    require_once('../layout/header.php');
+    require_once('../../models/product.php');
+    require_once('../../utils/file.php');
+    require_once('../../models/Category.php');
+} catch (\Throwable $th) {
+    var_dump($th->getMessage());
+}
 
 
 ?>
@@ -13,25 +17,27 @@ $categories = Category::findAll();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $fileName = uploadFile($_FILES['image']);
-        if (!$fileName)
-            throw new Exception("you have not selected a product photo");
-        $product->title = $_POST["title"];
-        $product->image = $fileName;
-        $product->metaTitle = $_POST["metaTitle"];
-        $product->slug = $_POST["slug"];
-        $product->summary = $_POST["summary"];
-        $product->sku = $_POST["sku"];
-        $product->price = $_POST["price"];
-        $product->discount = $_POST["discount"];
-        $product->quantity = $_POST["quantity"];
-        $product->content = $_POST["content"];
-        $product->category_id = $_POST["category_id"];
-        Product::insertProduct($product);
-        $response = [
-            'type' => 'success',
-            'message' => 'add product success'
-        ];
+        var_dump($fileName);
+        // if (!$fileName)
+        //     throw new Exception("you have not selected a product photo");
+        // $product->title = $_POST["title"];
+        // $product->image = $fileName;
+        // $product->metaTitle = $_POST["metaTitle"];
+        // $product->slug = $_POST["slug"];
+        // $product->summary = $_POST["summary"];
+        // $product->sku = $_POST["sku"];
+        // $product->price = $_POST["price"];
+        // $product->discount = $_POST["discount"];
+        // $product->quantity = $_POST["quantity"];
+        // $product->content = $_POST["content"];
+        // $product->category_id = $_POST["category_id"];
+        // Product::insertProduct($product);
+        // $response = [
+        //     'type' => 'success',
+        //     'message' => 'add product success'
+        // ];
     } catch (Exception $th) {
+        var_dump($th->getMessage());
         $response = [
             'type' => 'danger',
             'message' => $th->getMessage()
@@ -47,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <hr class="my-0">
     <div class="card-body">
-        <form id="formAccountSettings" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             <?php if ($response) : ?>
                 <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?= $response['message'] ?></div>
             <?php endif ?>
@@ -59,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="mb-3 col-md-6">
                     <label for="firstName" class="form-label">image</label>
-                    <input class="form-control" type="file" name="image" autofocus="">
+                    <input class="form-control" type="file" name="image" value="">
                 </div>
                 <div class="mb-3 col-md-6">
                     <label for="metaTitle" class="form-label">meta title</label>
