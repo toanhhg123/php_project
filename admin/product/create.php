@@ -18,24 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $fileName = uploadFile($_FILES['image']);
         var_dump($fileName);
-        // if (!$fileName)
-        //     throw new Exception("you have not selected a product photo");
-        // $product->title = $_POST["title"];
-        // $product->image = $fileName;
-        // $product->metaTitle = $_POST["metaTitle"];
-        // $product->slug = $_POST["slug"];
-        // $product->summary = $_POST["summary"];
-        // $product->sku = $_POST["sku"];
-        // $product->price = $_POST["price"];
-        // $product->discount = $_POST["discount"];
-        // $product->quantity = $_POST["quantity"];
-        // $product->content = $_POST["content"];
-        // $product->category_id = $_POST["category_id"];
-        // Product::insertProduct($product);
-        // $response = [
-        //     'type' => 'success',
-        //     'message' => 'add product success'
-        // ];
+        if (!$fileName)
+            throw new Exception("you have not selected a product photo");
+        $product->title = $_POST["title"];
+        $product->image = $fileName;
+        $product->metaTitle = $_POST["metaTitle"];
+        $product->slug = $_POST["slug"];
+        $product->summary = $_POST["summary"];
+        $product->sku = $_POST["sku"];
+        $product->price = $_POST["price"];
+        $product->discount = $_POST["discount"];
+        $product->quantity = $_POST["quantity"];
+        $product->content = $_POST["content"];
+        $product->category_id = $_POST["category_id"];
+        Product::insertProduct($product);
+        $response = [
+            'type' => 'success',
+            'message' => 'add product success'
+        ];
     } catch (Exception $th) {
         var_dump($th->getMessage());
         $response = [
