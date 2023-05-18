@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <td>
                             <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                 <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="<?= $item->title ?>">
-                                    <img src="/files/<?= $item->image ?>" alt="Avatar" class="rounded-circle">
+                                    <img src="../../files/<?= $item->image ?>" alt="Avatar" class="rounded-circle">
                                 </li>
                             </ul>
                         </td>
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/admin/product/edit.php?id=<?= $item->id ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                    <a class="dropdown-item" href="edit.php?id=<?= $item->id ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                     <form method="post">
                                         <input name="id" value="<?= $item->id ?>" hidden>
                                         <button class="dropdown-item" type="submit"><i class="bx bx-trash me-1"></i> Delete</button>

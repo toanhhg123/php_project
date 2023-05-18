@@ -1,3 +1,8 @@
+<?php
+require_once('../../utils/authorize.php');
+$redirect = "../../login.php?returnUrl={$_SERVER["REQUEST_URI"]}";
+authorize(1, $redirect, '../../page404.php');
+?>
 <!DOCTYPE html>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template-free">
 
@@ -247,7 +252,7 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="auth-login-basic.html">
+                                        <a class="dropdown-item" href="../../logout.php">
                                             <i class="bx bx-power-off me-2"></i>
                                             <span class="align-middle">Log Out</span>
                                         </a>
