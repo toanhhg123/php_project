@@ -9,17 +9,17 @@ class User
 {
 
     public int $id;
-    public string $firstName;
-    public string $middleName;
-    public string $lastName;
+    public ?string $firstName;
+    public ?string $middleName;
+    public ?string $lastName;
     public string $mobile;
     public string $email;
     public string $passwordHash;
     public int $admin;
-    public string $registeredAt;
-    public string $lastLogin;
-    public string $intro;
-    public string $profile;
+    public ?string $registeredAt;
+    public ?string $lastLogin;
+    public ?string $intro;
+    public ?string $profile;
     public ?string  $zip;
     public ?string  $province;
     public ?string  $country;

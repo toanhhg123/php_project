@@ -53,8 +53,17 @@ class AuthSession
         $_SESSION[SESSION_AUTH]["role"] = $user->admin;
         $_SESSION[SESSION_AUTH]["name"] = $user->lastName;
         $_SESSION[SESSION_AUTH]["user_id"] = $user->id;
-
         return new AuthSession($user->email,  $user->admin,  $user->lastName, $user->id);
+    }
+
+    public static function register(string $lastName, string $mobile, string $email, string $password): bool
+    {
+        global $conn;
+        $hashPash = createHash($password);
+        $sql = "INSERT INTO `user`( `mobile`, `lastName` ,`email`, `passwordHash`) 
+        VALUES ('{$mobile}','{$lastName}','{$email}','{$hashPash}');";
+        $result = $conn->prepare($sql);
+        return $result->execute();
     }
 
     public static function logout(): void

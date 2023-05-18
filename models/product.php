@@ -46,6 +46,7 @@ class Product
 
     public static function findBySlug($slug): ?Product
     {
+
         global $conn;
         $sql = "SELECT * from product where slug='{$slug}'";
         $result = $conn->prepare($sql);

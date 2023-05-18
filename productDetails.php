@@ -1,32 +1,44 @@
 <?php
-require "models/product.php";
-require_once __DIR__ . "/utils/authorize.php";
-require_once __DIR__ . "/models/Cart.php"
+try {
+    require_once("models/product.php");
+    require_once __DIR__ . "/utils/authorize.php";
+    require_once __DIR__ . "/models/Cart.php";
+} catch (\Throwable $th) {
+    var_dump($th->getMessage());
+}
 
 ?>
 <?php
-$slug = $_GET['slug'] ?? false;
-if (!$slug)
-    header('Location: page404.php?message=not found product');
-$data = Product::findBySlug($slug);
-if (!$data)
-    header('Location: page404.php?message=not found product');
+try {
+    $slug = $_GET['slug'] ?? false;
+    if (!$slug)
+        header('Location: page404.php?message=not found product');
+    $data = Product::findBySlug($slug);
+    if (!$data)
+        header('Location: page404.php?message=not found product');
 
-$listProduct = [];
-if ($data) {
-    $listProduct = array_filter(Product::findAll()->data, function ($product) use ($data) {
-        return $product->id != $data->id;
-    });
-    $listProduct = array_slice($listProduct, 0, 4);
+    $listProduct = [];
+    if ($data) {
+        $listProduct = array_filter(Product::findAll()->data, function ($product) use ($data) {
+            return $product->id != $data->id;
+        });
+        $listProduct = array_slice($listProduct, 0, 4);
+    }
+} catch (\Throwable $th) {
+    var_dump($th->getMessage());
 }
 ?>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    authorize();
-    $qty = $_POST['qty'] ?? 1;
-    Cart::addToCart($data->id, $qty);
-    header("Location: cart.php");
+try {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        authorize();
+        $qty = $_POST['qty'] ?? 1;
+        Cart::addToCart($data->id, $qty);
+        header("Location: cart.php");
+    }
+} catch (\Throwable $th) {
+    var_dump($th->getMessage());
 }
 ?>
 

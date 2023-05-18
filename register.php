@@ -2,31 +2,29 @@
 require_once './models/AuthSeesion.php';
 ?>
 
-<?php
-$returnUrl = $_GET['returnUrl'] ?? "index.php";
-?>
+
 
 <!-- handle Login -->
 <?php
+$response = null;
 try {
-  $response = null;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $user = AuthSession::login($email, $password);
-  if (!$user)
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $lastName = $_POST['lastName'];
+    $mobile = $_POST['mobile'];
+    $checkLogin = AuthSession::register($lastName, $mobile, $email, $password);
+
     $response = [
-      'type' => 'danger',
-      'message' => "email or password is not found"
+      'type' => 'success',
+      'message' => 'register success please login '. '<a href="login.php">now</a>' 
     ];
-  else
-    header("Location: " . $returnUrl);
-}
+  }
 } catch (\Throwable $th) {
   $response = [
     'type' => 'danger',
     'message' => $th->getMessage()
-  ]; 
+  ];
 }
 
 ?>
@@ -125,13 +123,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- /Logo -->
             <h4 class="mb-2">Welcome to Shop! 👋</h4>
             <?php if ($response) : ?>
-              <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?= $response['message'] ?></div>
+              <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?php echo($response['message'])?></div>
             <?php endif ?>
 
             <form class="mb-3" method="POST">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email or username" autofocus />
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email or username" autofocus />
+              </div>
+              <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter your mobile or username" autofocus />
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">lastName</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your lastName or username" autofocus />
               </div>
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
