@@ -80,7 +80,9 @@ $len = Cart::Count();
 					<li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
 					<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[<?= $len ?>]</a></li>
-
+					<?php if($len) : ?>	
+						<li class="nav-item"><a href="logout.php" class="nav-link">logout</a></li>
+					<?php endif ?>
 				</ul>
 			</div>
 		</div>
