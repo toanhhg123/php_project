@@ -17,7 +17,6 @@ $categories = Category::findAll();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $fileName = uploadFile($_FILES['image']);
-        var_dump($fileName);
         if (!$fileName)
             throw new Exception("you have not selected a product photo");
         $product->title = $_POST["title"];

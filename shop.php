@@ -6,7 +6,8 @@ require_once "models/Category.php";
 $categories = Category::findAll();
 $search = $_GET["search"] ?? "";
 $pageIndex = $_GET["pageIndex"] ?? 0;
-$pagination = Product::findAll($search, $pageIndex, 8);
+$category = $_GET['categoryId'] ?? null;
+$pagination = Product::findAll($search, $pageIndex, 8, $category);
 $data = $pagination->data;
 $totalPage = $pagination->totalPage;
 
@@ -28,15 +29,36 @@ require_once "./layout/header.php"
         </div>
     </div>
 </div>
-
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+    <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-6">
+                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+                <span>Get e-mail updates about our latest shops and special offers</span>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <form action="" class="subscribe-form">
+                    <div class="form-group d-flex">
+                        <input type="text" name="search" class="form-control" placeholder="...search">
+                        <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
-                    <li><a href="#" class="active">All</a></li>
+                    <li><a href="/shop.php" class="<?= $category === null ? 'active' : '' ?>">All</a></li>
                     <?php foreach ($categories as $item) : ?>
-                        <li><a href=""><?= $item->name ?></a></li>
+                        <li>
+                            <a href="?categoryId=<?= $item->id ?>" class="<?= $category == $item->id ? 'active' : '' ?>">
+                                <?= $item->name ?>
+                            </a>
+                        </li>
                     <?php endforeach ?>
                 </ul>
             </div>

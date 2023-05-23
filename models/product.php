@@ -29,20 +29,23 @@ class Product
     /**
      * @return Pagination
      */
-    public static function findAll(string $search = "", int $pageIndex = 0, int $pageSize = 8): Pagination
+    public static function findAll(string $search = "", int $pageIndex = 0, int $pageSize = 8, string $categoryId = null): Pagination
     {
         $skip = $pageIndex * $pageSize;
         global $conn;
-        $sql = "SELECT * from product where title like '%{$search}%' limit {$skip},{$pageSize}";
+        $categoryQuery = $categoryId ? " and category_id = '{$categoryId}'" : "";
+        $sql = "SELECT product.* from product join category WHERE category_id = category.id and title like '%{$search}%' {$categoryQuery} limit {$skip},{$pageSize}";
         $result = $conn->prepare($sql);
         $result->execute();
         $products = $result->fetchAll(PDO::FETCH_CLASS, 'Product');
 
 
-        $totalRow = $conn->query("SELECT count(*) from product where title like '%{$search}%';")->fetchColumn();
+        $totalRow = $conn->query("SELECT count(*) from product where title like '%{$search}%' {$categoryQuery};")->fetchColumn();
         $totalPage = ceil($totalRow / $pageSize);
         return new Pagination($pageIndex, $pageSize, $totalPage, $products);
     }
+
+
 
     public static function findBySlug($slug): ?Product
     {
