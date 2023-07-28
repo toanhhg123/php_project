@@ -18,9 +18,12 @@ require "./layout/header.php"
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
                     <div class="col-md-12 ftco-animate text-center">
-                        <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
-                        <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                        <p><a href="./shop.php" class="btn btn-primary">View Details</a></p>
+                        <h1 class="mb-2">Provide the best quality products
+                        </h1>
+                        <h2 class="subheading mb-4">We always provide character models
+                        </h2>
+                        <p><a href="./shop.php" class="btn btn-danger">See details
+                            </a></p>
                     </div>
 
                 </div>
@@ -32,9 +35,11 @@ require "./layout/header.php"
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
                     <div class="col-sm-12 ftco-animate text-center">
-                        <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
-                        <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                        <p><a href="./shop.php" class="btn btn-primary">View Details</a></p>
+                        <h1 class="mb-2">100% Genuine
+                        </h1>
+                        <h2 class="subheading mb-4">We always bring genuine models
+                        </h2>
+                        <p><a href="./shop.php" class="btn btn-danger">see details</a></p>
                     </div>
 
                 </div>
@@ -52,19 +57,22 @@ require "./layout/header.php"
                         <span class="flaticon-shipped"></span>
                     </div>
                     <div class="media-body">
-                        <h3 class="heading">Free Shipping</h3>
-                        <span>On order over $100</span>
+                        <h3 class="heading">Free ship
+                        </h3>
+                        <span>For Orders Over $300
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                 <div class="media block-6 services mb-md-0 mb-4">
                     <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
-                        <span class="flaticon-diet"></span>
+                        <span class="flaticon-box"></span>
                     </div>
                     <div class="media-body">
-                        <h3 class="heading">Always Fresh</h3>
-                        <span>Product well package</span>
+                        <h3 class="heading">Pack</h3>
+                        <span>Best product packaging
+                        </span>
                     </div>
                 </div>
             </div>
@@ -74,8 +82,10 @@ require "./layout/header.php"
                         <span class="flaticon-award"></span>
                     </div>
                     <div class="media-body">
-                        <h3 class="heading">Superior Quality</h3>
-                        <span>Quality Products</span>
+                        <h3 class="heading">High Quality
+                        </h3>
+                        <span>Product quality
+                        </span>
                     </div>
                 </div>
             </div>
@@ -86,7 +96,8 @@ require "./layout/header.php"
                     </div>
                     <div class="media-body">
                         <h3 class="heading">Support</h3>
-                        <span>24/7 Support</span>
+                        <span>24/7 customer support
+                        </span>
                     </div>
                 </div>
             </div>
@@ -102,21 +113,22 @@ require "./layout/header.php"
                     <div class="col-md-6 order-md-last align-items-stretch d-flex">
                         <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(assets/images/category.jpg);">
                             <div class="text text-center">
-                                <h2>Vegetables</h2>
-                                <p>Protect the health of every home</p>
-                                <p><a href="#" class="btn btn-primary">Shop now</a></p>
+                                <h2>Figure Store</h2>
+                                <p>We always bring the best quality products
+                                </p>
+                                <p><a href="#" class="btn btn-danger">Shop now</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/category-1.jpg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Fruits</a></h2>
+                                <h2 class="mb-0"><a href="#">Anime</a></h2>
                             </div>
                         </div>
                         <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/category-2.jpg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Vegetables</a></h2>
+                                <h2 class="mb-0"><a href="#">Gundam</a></h2>
                             </div>
                         </div>
                     </div>
@@ -124,14 +136,14 @@ require "./layout/header.php"
             </div>
 
             <div class="col-md-4">
-                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/category-3.jpg);">
+                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/bohonhop.png);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Juices</a></h2>
+                        <h2 class="mb-0"><a href="#">MarVel</a></h2>
                     </div>
                 </div>
-                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/category-4.jpg);">
+                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/batman.png);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Dried</a></h2>
+                        <h2 class="mb-0"><a href="#">DC comics</a></h2>
                     </div>
                 </div>
             </div>
@@ -145,9 +157,11 @@ require "./layout/header.php"
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-12 heading-section text-center ftco-animate">
-                <span class="subheading">Featured Products</span>
-                <h2 class="mb-4">Our Products</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                <span class="subheading">Products</span>
+                <h2 class="mb-4">Our products
+                </h2>
+                <p>We always bring the best products, prices are suitable for students and have promotional policies.
+                </p>
             </div>
         </div>
     </div>
@@ -158,7 +172,9 @@ require "./layout/header.php"
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product">
                         <a href="productDetails.php?slug=<?= $product->slug ?>" class="img-prod"><img class="img-fluid" src="files/<?= $product->image ?>" alt="Colorlib Template">
-                            <span class="status"> <?= $product->discount . '%' ?></span>
+                            <span class="status">
+                                <?= $product->discount . '%' ?>
+                            </span>
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 pb-4 px-3 text-center">
@@ -168,9 +184,11 @@ require "./layout/header.php"
                             <div class="d-flex">
                                 <div class="pricing">
                                     <p class="price"><span class="mr-2 price-dc">
-                                            $<?= $product->price ?>.00
+                                            $
+                                            <?= $product->price ?>.00
                                         </span><span class="price-sale">
-                                            $<?= $product->price - ($product->price * $product->discount) / 100 ?>.00
+                                            $
+                                            <?= $product->price - ($product->price * $product->discount) / 100 ?>.00
                                         </span></p>
                                 </div>
                             </div>

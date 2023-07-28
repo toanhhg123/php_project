@@ -33,14 +33,14 @@ require_once "./layout/header.php"
     <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-6">
-                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-                <span>Get e-mail updates about our latest shops and special offers</span>
+                <h2 style="font-size: 22px;" class="mb-0">FiGURE Store</h2>
+                <span>We will always bring you the latest models</span>
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <form action="" class="subscribe-form">
                     <div class="form-group d-flex">
-                        <input type="text" name="search" class="form-control" placeholder="...search">
-                        <input type="submit" value="Subscribe" class="submit px-3">
+                        <input type="text" name="search" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                        <input type="submit" value="Tìm kiếm" class="submit px-3">
                     </div>
                 </form>
             </div>
@@ -52,7 +52,7 @@ require_once "./layout/header.php"
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
-                    <li><a href="/shop.php" class="<?= $category === null ? 'active' : '' ?>">All</a></li>
+                    <li><a href="shop.php" class="<?= $category === null ? 'active' : '' ?>">All</a></li>
                     <?php foreach ($categories as $item) : ?>
                         <li>
                             <a href="?categoryId=<?= $item->id ?>" class="<?= $category == $item->id ? 'active' : '' ?>">
@@ -109,7 +109,7 @@ require_once "./layout/header.php"
                 <div class="block-27">
                     <ul>
                         <?php for ($i = 0; $i < $totalPage; $i++) : ?>
-                            <li class="<?= $pageIndex == $i ? "active" : "" ?>"><a href="/shop.php?search=<?= $search ?>&pageIndex=<?= $i ?>"><?= $i + 1 ?></a></li>
+                            <li class="<?= $pageIndex == $i ? "active" : "" ?>"><a href="shop.php?search=<?= $search ?>&pageIndex=<?= $i ?>"><?= $i + 1 ?></a></li>
 
                         <?php endfor ?>
                     </ul>

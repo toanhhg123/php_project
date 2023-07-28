@@ -4,7 +4,7 @@ function GetAllProduct($filename = "data/data_B2.csv"): array
 {
     $lines = explode("\n", file_get_contents($filename));
     array_shift($lines);
-
+    
     $data = [];
     foreach ($lines as $line) {
         $a = explode(",", $line);

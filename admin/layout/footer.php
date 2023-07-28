@@ -9,8 +9,8 @@
             <script>
                 document.write(new date().getfullyear());
             </script>
-            , made with ❤️ by
-            <a href="#" class="footer-link fw-bolder">le huu toan - 2001206939</a>
+            , made by
+            <a href="#" class="footer-link fw-bolder">nguyen xuan truc - 61134594</a>
         </div>
     </div>
 </footer>

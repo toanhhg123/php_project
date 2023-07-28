@@ -69,10 +69,10 @@ require_once "layout/header.php";
                             <tr class="text-center">
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
-                                <th>Product name</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng tiền</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -120,11 +120,14 @@ require_once "layout/header.php";
         <div class="row justify-content-end">
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Check info my order</h3>
-                    <p>Enter your coupon code if you have one</p>
+                    <h3>Check my order information
+                    </h3>
+                    <p>Enter your coupon code if you have one
+                    </p>
                     <form action="#" class="info">
                         <div class="form-group">
-                            <label for="">Go to Order</label>
+                            <label for="">Go to Order
+                            </label>
                             <a href="order.php" class="btn btn-primary py-3 px-4">Go</a>
                         </div>
                     </form>
@@ -134,17 +137,19 @@ require_once "layout/header.php";
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Estimate shipping and tax</h3>
-                    <p>Enter your destination to get a shipping estimate</p>
+                    <h3>User information, address, shipping and tax
+                    </h3>
+                    <p>Enter your destination to get a shipping estimate
+                    </p>
                     <form method="post" id="formAddress" class="info">
                         <input type="text" name="typeForm" value="UpdateAddress" hidden>
 
                         <div class="form-group">
-                            <label for="">Country</label>
+                            <label for="">Nation</label>
                             <input type="text" name="country" class="form-control text-left px-3" placeholder="" value="<?= $user->country ?>" />
                         </div>
                         <div class="form-group">
-                            <label for="country">State/Province</label>
+                            <label for="country">address</label>
                             <input type="text" name="province" class="form-control text-left px-3" placeholder="" value="<?= $user->province ?>" />
                         </div>
                         <div class="form-group">
@@ -160,13 +165,14 @@ require_once "layout/header.php";
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Cart Totals</h3>
+                    <h3>Total Orders
+                    </h3>
                     <p class="d-flex">
                         <span>Subtotal</span>
                         <span>$<?= $totalPrice ?></span>
                     </p>
                     <p class="d-flex">
-                        <span>Delivery</span>
+                        <span>Transport</span>
                         <span>$0.00</span>
                     </p>
                     <p class="d-flex">
@@ -175,7 +181,8 @@ require_once "layout/header.php";
                     </p>
                     <hr />
                     <p class="d-flex total-price">
-                        <span>Total</span>
+                        <span>Total amount
+                        </span>
                         <span>$<?= $totalPrice - $totalDisCount ?></span>
                     </p>
                 </div>
@@ -193,15 +200,15 @@ require_once "layout/header.php";
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-6">
                 <h2 style="font-size: 22px" class="mb-0">
-                    Subcribe to our Newsletter
+                    Sign up to receive our latest notifications
                 </h2>
-                <span>Get e-mail updates about our latest shops and special
-                    offers</span>
+                <span>Enter your email and you will receive our notifications and special offers
+                </span>
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <form action="#" class="subscribe-form">
                     <div class="form-group d-flex">
-                        <input type="text" class="form-control" placeholder="Enter email address" />
+                        <input type="text" class="form-control" placeholder="Nhập email" />
                         <input type="submit" value="Subscribe" class="submit px-3" />
                     </div>
                 </form>

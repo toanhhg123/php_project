@@ -17,7 +17,7 @@ try {
 
     $response = [
       'type' => 'success',
-      'message' => 'register success please login '. '<a href="login.php">now</a>' 
+      'message' => 'register success please login ' . '<a href="login.php">now</a>'
     ];
   }
 } catch (\Throwable $th) {
@@ -123,7 +123,7 @@ try {
             <!-- /Logo -->
             <h4 class="mb-2">Welcome to Shop! 👋</h4>
             <?php if ($response) : ?>
-              <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?php echo($response['message'])?></div>
+              <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?php echo ($response['message']) ?></div>
             <?php endif ?>
 
             <form class="mb-3" method="POST">
@@ -162,7 +162,8 @@ try {
             </form>
 
             <p class="text-center">
-              <span>New on our platform?</span>
+              <a href="./login.php" class="btn d-grid w-100">login</a>
+
             </p>
           </div>
         </div>

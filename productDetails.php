@@ -128,9 +128,9 @@ require "./layout/header.php"
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-12 heading-section text-center ftco-animate">
-                <span class="subheading">Products</span>
-                <h2 class="mb-4">Related Products</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                <span class="subheading">Sản phẩm</span>
+                <h2 class="mb-4">Sản phẩm tương tự</h2>
+                <p>Những sản phẩm tương tự</p>
             </div>
         </div>
     </div>
@@ -183,13 +183,15 @@ require "./layout/header.php"
     <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-6">
-                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-                <span>Get e-mail updates about our latest shops and special offers</span>
+                <h2 style="font-size: 22px;" class="mb-0">Sign up to receive our latest notifications
+                </h2>
+                <span>Enter your email and you will receive our notifications and special offers
+                </span>
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <form action="#" class="subscribe-form">
                     <div class="form-group d-flex">
-                        <input type="text" class="form-control" placeholder="Enter email address">
+                        <input type="text" class="form-control" placeholder="Nhập email">
                         <input type="submit" value="Subscribe" class="submit px-3">
                     </div>
                 </form>

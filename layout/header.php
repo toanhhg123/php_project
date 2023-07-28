@@ -14,7 +14,7 @@ $len = Cart::Count();
 <html lang="en">
 
 <head>
-	<title>Vegefoods</title>
+	<title>Figure Store</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -43,21 +43,22 @@ $len = Cart::Count();
 </head>
 
 <body class="goto-here">
-	<div class="py-1 bg-primary">
+	<div class="py-1 bg-danger">
 		<div class="container">
 			<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
 				<div class="col-lg-12 d-block">
 					<div class="row d-flex">
 						<div class="col-md pr-4 d-flex topper align-items-center">
 							<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-							<span class="text">+ 84 0909090909</span>
+							<span class="text">+ 03 12312345</span>
 						</div>
 						<div class="col-md pr-4 d-flex topper align-items-center">
 							<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-							<span class="text">NguyenPhuQui@email.com</span>
+							<span class="text">Alvintran20z@gmail.com</span>
 						</div>
 						<div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-							<span class="text">3-5 Business days delivery &amp; Free Returns</span>
+							<span class="text">Delivery 3-5 days
+								&amp; Return Free</span>
 						</div>
 					</div>
 				</div>
@@ -66,7 +67,7 @@ $len = Cart::Count();
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.php">Vegefoods</a>
+			<a class="navbar-brand" href="index.php">figure <span style="color:#ccc;">store</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
@@ -76,11 +77,13 @@ $len = Cart::Count();
 					<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="shop.php" class="nav-link">Shop</a></li>
 
-					<li class="nav-item"><a href="/about.php" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 					<li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-					<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[<?= $len ?>]</a></li>
-					<?php if($len) : ?>	
+					<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[
+							<?= $len ?>]
+						</a></li>
+					<?php if ($len) : ?>
 						<li class="nav-item"><a href="logout.php" class="nav-link">logout</a></li>
 					<?php endif ?>
 				</ul>

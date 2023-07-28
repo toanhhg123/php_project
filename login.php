@@ -10,23 +10,23 @@ $returnUrl = $_GET['returnUrl'] ?? "index.php";
 <?php
 try {
   $response = null;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $user = AuthSession::login($email, $password);
-  if (!$user)
-    $response = [
-      'type' => 'danger',
-      'message' => "email or password is not found"
-    ];
-  else
-    header("Location: " . $returnUrl);
-}
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $user = AuthSession::login($email, $password);
+    if (!$user)
+      $response = [
+        'type' => 'danger',
+        'message' => "email or password is not found"
+      ];
+    else
+      header("Location: " . $returnUrl);
+  }
 } catch (\Throwable $th) {
   $response = [
     'type' => 'danger',
     'message' => $th->getMessage()
-  ]; 
+  ];
 }
 
 ?>
@@ -152,11 +152,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
               <div class="mb-3">
                 <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+
               </div>
             </form>
 
             <p class="text-center">
-              <span>New on our platform?</span>
+              <a href="./register.php" class="btn d-grid w-100">register</a>
+
             </p>
           </div>
         </div>

@@ -19,7 +19,8 @@ try {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $id = $_POST["id"] ?? null;
-        if (!$id) header("Location: /page404.php");
+        if (!$id)
+            header("Location: /page404.php");
         User::deleteById($id);
     } catch (\Throwable $th) {
         $response = [
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <a href="/admin/account/create.php" class="my-3 btn btn-primary">Add New</a>
 <div class="card">
     <h5 class="card-header">Table Accounts</h5>
-    <?php if ($response) : ?>
+    <?php if ($response): ?>
         <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?= $response['message'] ?></div>
     <?php endif ?>
     <div class="table-responsive text-nowrap">
@@ -49,10 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                <?php foreach ($users as $user) : ?>
+                <?php foreach ($users as $user): ?>
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?= $user->firstName . " " . $user->lastName ?></strong></td>
-                        <td><?= $user->email ?></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                                <?= $user->firstName . " " . $user->lastName ?>
+                            </strong></td>
+                        <td>
+                            <?= $user->email ?>
+                        </td>
                         <td>
                             <?= $user->mobile ?>
                         </td>
@@ -63,10 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/admin/account/edit.php?id=<?= $user->id ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                    <a class="dropdown-item" href="edit.php?id=<?= $user->id ?>"><i
+                                            class="bx bx-edit-alt me-1"></i> Edit</a>
                                     <form method="post">
                                         <input type="text" name="id" value="<?= $user->id ?>" hidden>
-                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash me-1"></i> Delete</button>
+                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash me-1"></i>
+                                            Delete</button>
                                     </form>
                                 </div>
                             </div>

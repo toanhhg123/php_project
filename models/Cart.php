@@ -30,14 +30,9 @@ class Cart
     public ?string $province;
     public ?string $zip;
 
-
-
     public int $isOrder;
 
-
-
-
-
+    // lấy ra tất cả giỏ hàng trong db
     /**
      * @return Cart[]
      */
@@ -53,6 +48,7 @@ class Cart
         return $data;
     }
 
+    //lấy ra tất cả danh sách order bên trang admin
     /**
      * @return Cart[]
      */
@@ -71,6 +67,7 @@ class Cart
         return $data;
     }
 
+    // cập nhật thông tin đặt hàng
     public static function updateOrder(): bool
     {
         global $conn;
@@ -83,6 +80,7 @@ class Cart
         return $result->execute();
     }
 
+    // thêm vào giỏ hàng
     public static function addToCart(int $product_id, int $qty): bool
     {
         global $conn;
@@ -93,6 +91,7 @@ class Cart
         return  $result->execute();
     }
 
+    // đểm giỏ hàng của người dùng
     public static function Count(): int
     {
         if (!AuthSession::CheckLogin()) return 0;
@@ -106,6 +105,7 @@ class Cart
         return $count;
     }
 
+    // xoá sản phẩm 
     public static function remove(int $id)
     {
         global $conn;

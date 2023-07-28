@@ -66,10 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
                             <tr class="text-center">
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
-                                <th>Product name</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng tiền</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -118,16 +118,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
 
             <div class="col-lg-8 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>information user, address, shipping and tax</h3>
-                    <p>Enter your destination to get a shipping estimate</p>
+                    <h3>thông tin người dùng, địa chỉ, vận chuyển và thuế</h3>
+                    <p>Nhập điểm đến của bạn để nhận ước tính vận chuyển</p>
                     <form method="post" id="formAddress" class="info">
                         <input type="text" name="typeForm" value="UpdateAddress" hidden>
                         <div class="form-group">
-                            <label for="">fullname</label>
+                            <label for="">Tên</label>
                             <input type="text" name="mobile" class="form-control text-left px-3" placeholder="" value="<?= $user->firstName . $user->lastName ?>" />
                         </div>
                         <div class="form-group">
-                            <label for="">Phone Number</label>
+                            <label for="">Số điện thoại</label>
                             <input type="text" name="mobile" class="form-control text-left px-3" placeholder="" value="<?= $user->mobile ?>" />
                         </div>
                         <div class="form-group">
@@ -135,12 +135,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
                             <input type="text" name="country" class="form-control text-left px-3" placeholder="" value="<?= $user->email ?>" />
                         </div>
                         <div class="form-group">
-                            <label for="">Country</label>
+                            <label for="">Quốc Gia</label>
                             <input type="text" name="country" class="form-control text-left px-3" placeholder="" value="<?= $user->country ?>" />
                         </div>
 
                         <div class="form-group">
-                            <label for="country">State/Province</label>
+                            <label for="country">Địa chỉ</label>
                             <input type="text" name="province" class="form-control text-left px-3" placeholder="" value="<?= $user->province ?>" />
                         </div>
                         <div class="form-group">
@@ -156,22 +156,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Order Totals</h3>
+                    <h3>Tổng số đơn đặt hàng</h3>
                     <p class="d-flex">
-                        <span>Subtotal</span>
+                        <span>Tổng phụ</span>
                         <span>$<?= $totalPrice ?></span>
                     </p>
                     <p class="d-flex">
-                        <span>Delivery</span>
+                        <span>Vận Chuyển</span>
                         <span>$0.00</span>
                     </p>
                     <p class="d-flex">
-                        <span>Discount</span>
+                        <span>Giảm giá</span>
                         <span>$<?= $totalDisCount ?></span>
                     </p>
                     <hr />
                     <p class="d-flex total-price">
-                        <span>Total</span>
+                        <span>Tổng tiền</span>
                         <span>$<?= $totalPrice - $totalDisCount ?></span>
                     </p>
                 </div>
@@ -188,15 +188,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-6">
                 <h2 style="font-size: 22px" class="mb-0">
-                    Subcribe to our Newsletter
+                Đăng ký để nhận thông báo mới nhất của chúng tôi
                 </h2>
-                <span>Get e-mail updates about our latest shops and special
-                    offers</span>
+                <span>Nhập email và bạn sẽ nhận được những thông báo và ưu đãi đặc biệt của chúng tôi
+                    </span>
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <form action="#" class="subscribe-form">
                     <div class="form-group d-flex">
-                        <input type="text" class="form-control" placeholder="Enter email address" />
+                        <input type="text" class="form-control" placeholder="Nhập Email" />
                         <input type="submit" value="Subscribe" class="submit px-3" />
                     </div>
                 </form>

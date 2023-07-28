@@ -1,5 +1,4 @@
 <?php
-
 require_once(__DIR__ . "/../models/AuthSeesion.php");
 function authorize(int $role = null, string $urlAuthen = null,string $urlNotFound = 'page404.php')
 {

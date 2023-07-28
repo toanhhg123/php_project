@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <hr class="my-0">
     <div class="card-body">
         <form method="POST" enctype="multipart/form-data">
-            <?php if ($response) : ?>
+            <?php if ($response): ?>
                 <div class="<?= "alert alert-" . $response['type'] ?>" role="alert"><?= $response['message'] ?></div>
             <?php endif ?>
 
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="mb-3 col-md-6">
                     <label class="form-label">summary</label>
-                    <input class="form-control" type="text" name="summary" placeholder="john.doe@example.com">
+                    <input class="form-control" type="text" name="summary" placeholder="">
                 </div>
                 <div class="mb-3 col-md-6">
                     <label class="form-label">sku</label>
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="mb-3 col-md-6">
                     <label class="form-label" for="country">categories</label>
                     <select id="country" name="category_id" class="select2 form-select">
-                        <?php foreach ($categories as $item) : ?>
+                        <?php foreach ($categories as $item): ?>
                             <option value="<?= $item->id ?>"><?= $item->name ?></option>
                         <?php endforeach ?>
 
@@ -111,7 +111,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="mb-3 col-md-12">
                     <label class="form-label" for="country">content</label>
-                    <textarea id="basic-default-message" name="content" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
+                    <textarea id="basic-default-message" name="content" class="form-control"
+                        placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
                 </div>
 
             </div>
