@@ -24,6 +24,8 @@ class AuthSession
         $this->name = $name;
         $this->user_id = $user_id;
     }
+
+    // kiểm tra đằng nhập của người dùng
     public static function CheckLogin(): bool
     {
         $isLogin = $_SESSION[SESSION_AUTH] ?? false;
