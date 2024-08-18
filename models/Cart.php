@@ -29,6 +29,9 @@ class Cart
     public ?string $country;
     public ?string $province;
     public ?string $zip;
+    public ?string $size;
+    public ?string $color;
+
 
     public int $isOrder;
 
@@ -81,12 +84,12 @@ class Cart
     }
 
     // thêm vào giỏ hàng
-    public static function addToCart(int $product_id, int $qty): bool
+    public static function addToCart(int $product_id, int $qty, string $size, string $color): bool
     {
         global $conn;
         $auth = AuthSession::getInfoAuthecation();
-        $sql = "INSERT INTO `cart` (`id`, `user_id`, `created_at`, `updated_at`, `product_id`, `qty`)
-             VALUES (NULL, '{$auth->user_id}', current_timestamp(), current_timestamp(), '{$product_id}', '{$qty}')";
+        $sql = "INSERT INTO `cart` (`id`, `user_id`, `created_at`, `updated_at`, `product_id`, `qty`, `size`, `color`)
+             VALUES (NULL, '{$auth->user_id}', current_timestamp(), current_timestamp(), '{$product_id}', '{$qty}', '{$size}', '{$color}')";
         $result = $conn->prepare($sql);
         return  $result->execute();
     }

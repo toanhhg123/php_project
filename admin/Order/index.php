@@ -54,8 +54,8 @@ require_once('../layout/header.php');
                     <th>mobile</th>
                     <th>country</th>
                     <th>Province</th>
-
-
+                    <th>Size</th>
+                    <th>Color</th>
                     <th>price</th>
                     <th>quantity</th>
                     <th>Actions</th>
@@ -87,6 +87,12 @@ require_once('../layout/header.php');
                             </span></td>
                         <td><span class="badge bg-label-primary me-1">
                                 <?= $item->province ?>
+                            </span></td>
+                         <td><span class="badge bg-label-primary me-1">
+                                <?= $item->size ?>
+                            </span></td>
+                             <td><span class="badge bg-label-primary me-1">
+                                <?= $item->color ?>
                             </span></td>
                         <td><span class="badge bg-label-primary me-1">
                                 <?= $item->price . "$" ?>

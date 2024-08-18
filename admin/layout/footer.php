@@ -10,7 +10,7 @@
                 document.write(new date().getfullyear());
             </script>
             , made by
-            <a href="#" class="footer-link fw-bolder">nguyen xuan truc - 61134594</a>
+            <a href="#" class="footer-link fw-bolder">Nguyen Van Anh</a>
         </div>
     </div>
 </footer>

@@ -10,8 +10,8 @@
     <div class="row mb-5">
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Figure Store</h2>
-          <p>ShopFigu is a store that always provides hobbyists, passionate about collecting character models. We will constantly update the latest and most popular models for you to collect!!
+          <h2 class="ftco-heading-2">Male Store</h2>
+          <p>Male Store is a store for men's fashion enthusiasts. We always bring the newest and hottest fashion collections so you can confidently express your style. Come to Male Store to update trends and upgrade your fashion sense!
           </p>
           <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>

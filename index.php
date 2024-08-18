@@ -12,7 +12,7 @@ require "./layout/header.php"
 
 <section id="home-section" class="hero">
     <div class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image: url(./assets/images/bg_1.jpg);">
+        <div class="slider-item" style="background-image: url(./assets/images/bg_4.png);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -29,7 +29,7 @@ require "./layout/header.php"
                 </div>
             </div>
         </div>
-        <div class="slider-item" style="background-image: url(./assets/images/bg_2.jpg);">
+        <div class="slider-item" style="background-image: url(./assets/images/bg_5.png);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -111,7 +111,7 @@ require "./layout/header.php"
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-6 order-md-last align-items-stretch d-flex">
-                        <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(assets/images/category.jpg);">
+                        <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(assets/images/category_4.png);">
                             <div class="text text-center">
                                 <h2>Figure Store</h2>
                                 <p>We always bring the best quality products
@@ -121,14 +121,14 @@ require "./layout/header.php"
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/category-1.jpg);">
+                        <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/category_1.png);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Anime</a></h2>
+                                <h2 class="mb-0"><a href="#">Levents</a></h2>
                             </div>
                         </div>
-                        <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/category-2.jpg);">
+                        <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/category_2.png);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Gundam</a></h2>
+                                <h2 class="mb-0"><a href="#">Owen</a></h2>
                             </div>
                         </div>
                     </div>
@@ -136,14 +136,14 @@ require "./layout/header.php"
             </div>
 
             <div class="col-md-4">
-                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/bohonhop.png);">
+                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/category_3.png);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">MarVel</a></h2>
+                        <h2 class="mb-0"><a href="#">Adidas</a></h2>
                     </div>
                 </div>
-                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/batman.png);">
+                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/category_5.png);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">DC comics</a></h2>
+                        <h2 class="mb-0"><a href="#">Puma</a></h2>
                     </div>
                 </div>
             </div>

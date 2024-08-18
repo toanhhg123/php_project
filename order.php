@@ -68,6 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
                                 <th>&nbsp;</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá</th>
+                                <th>Size</th>
+                                <th>Color</th>
                                 <th>Số lượng</th>
                                 <th>Tổng tiền</th>
                             </tr>
@@ -97,6 +99,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["typeForm"] === "checkout") {
                                     </td>
 
                                     <td class="price"><?= '$' . $cart->price . '.00' ?></td>
+                                    <td class="size"><?= $cart->size ?></td>
+                                    <td class="color"><?= $cart->color ?></td>
+
 
                                     <td class="quantity">
                                         <div class="input-group mb-3">

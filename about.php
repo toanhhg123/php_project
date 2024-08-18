@@ -1,7 +1,7 @@
 <?php
 require_once "./layout/header.php"
 ?>
-<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_5.png');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
@@ -24,17 +24,19 @@ require_once "./layout/header.php"
             <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
                 <div class="heading-section-bold mb-4 mt-md-5">
                     <div class="ml-md-0">
-                        <h2 class="mb-4">Welcome to FIGURE Store, a safe and quality pet shop
+                        <h2 class="mb-4">Welcome to Male Shop, your go-to destination for premium men's fashion.
                         </h2>
                     </div>
                 </div>
                 <div class="pb-md-5">
-                    <p>We always bring you the latest and best model collections and always ensure on-time delivery within 3-5 days.
-                        and we always support users.
+                    <p>
+                        We always bring you the latest and best fashion collections and ensure on-time delivery within 3-5 days.
                     </p>
                     <p>
-                        We always provide the best products with extremely attractive promotion policies. And we
-                        Guarantee that the product when delivered to everyone is safe and without any damage.
+                        We consistently support our customers, providing the highest quality products along with highly attractive promotion policies. 
+                    </p>
+                    <p>
+                        We guarantee that every item delivered to you is safe and free from any damage.
                     </p>
                     <p><a href="shop.php" class="btn btn-primary">Shop now</a></p>
                 </div>
@@ -72,7 +74,7 @@ require_once "./layout/header.php"
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="10000">0</strong>
+                                <strong class="number" data-number="479">0</strong>
                                 <span>Số lượng khách hàng</span>
                             </div>
                         </div>
@@ -80,7 +82,7 @@ require_once "./layout/header.php"
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="5">0</strong>
+                                <strong class="number" data-number="2">0</strong>
                                 <span>Chi nhánh</span>
                             </div>
                         </div>
@@ -88,7 +90,7 @@ require_once "./layout/header.php"
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="10">0</strong>
+                                <strong class="number" data-number="7">0</strong>
                                 <span>Nhân viên</span>
                             </div>
                         </div>
@@ -96,7 +98,7 @@ require_once "./layout/header.php"
                     <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="5000">0</strong>
+                                <strong class="number" data-number="2500">0</strong>
                                 <span>Sản phẩm đã bán</span>
                             </div>
                         </div>

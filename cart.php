@@ -71,6 +71,8 @@ require_once "layout/header.php";
                                 <th>&nbsp;</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá</th>
+                                <th>Size</th>
+                                <th>Color</th>
                                 <th>Số lượng</th>
                                 <th>Tổng tiền</th>
                             </tr>
@@ -98,9 +100,9 @@ require_once "layout/header.php";
                                             <?= $cart->metaTitle ?>
                                         </p>
                                     </td>
-
                                     <td class="price"><?= '$' . $cart->price . '.00' ?></td>
-
+                                    <td class="size"><?= $cart->size ?></td>
+                                    <td class="color"><?= $cart->color  ?></td>
                                     <td class="quantity">
                                         <div class="input-group mb-3">
                                             <input type="text" name="quantity" class="quantity form-control input-number" value="<?= $cart->qty ?>" min="1" max="100" />
